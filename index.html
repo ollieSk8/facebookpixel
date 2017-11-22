@@ -23,13 +23,22 @@
 
 </head>
 <body>
-<button id="btn" value="bargain">bargain</button>
+<button id="btn" value="bargain">bargain</button><br>
+<button id="btn2" value="buy">buy</button>
 <script type="text/javascript">
 document.getElementById('btn').addEventListener('click',function(){
-	console.log('click');
-	//fbq('track', 'Purchase');
+	console.log('click bargain');
 	fbq('track', 'bargain');	
 },false)
+document.getElementById('btn2').addEventListener('click',function(){
+	console.log('click buy');
+	  fbq('track', 'Purchase', {
+	    value: 0,
+	    currency: 'USD',
+	  });
+},false)
 </script>
+
+
 </body>
 </html>
