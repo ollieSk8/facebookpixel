@@ -13,7 +13,7 @@
 	  t.src=v;s=b.getElementsByTagName(e)[0];
 	  s.parentNode.insertBefore(t,s)}(window, document,'script',
 	  'https://connect.facebook.net/en_US/fbevents.js');
-	  fbq('init', '1488636381351724');
+	  fbq('init', '1510236352358621');
 	  fbq('track', 'PageView');
 	</script>
 	<noscript><img height="1" width="1" style="display:none"
@@ -23,19 +23,30 @@
 
 </head>
 <body>
-<button id="btn" value="bargain">bargain</button><br>
-<button id="btn2" value="buy">buy</button>
+<button id="bargain" value="bargain">bargain</button><br>
+<button id="submit" value="bargain">submit</button><br>
+<button id="visit" value="bargain">visit</button>
+
 <script type="text/javascript">
-document.getElementById('btn').addEventListener('click',function(){
-	console.log('click bargain');
-	fbq('track', 'bargain');	
+document.getElementById('bargain').addEventListener('click',function(){
+	console.log('bargain click');
+	fbq('trackCustom', 'bargain', {
+		num_bargain: 1
+	});
 },false)
-document.getElementById('btn2').addEventListener('click',function(){
-	console.log('click buy');
-	  fbq('track', 'Purchase', {
-	    value: 0,
-	    currency: 'USD',
-	  });
+
+document.getElementById('submit').addEventListener('click',function(){
+	console.log('submit click');
+	fbq('trackCustom', 'submit', {
+		num_submit: 1
+	});
+},false)
+
+document.getElementById('visit').addEventListener('click',function(){
+	console.log('visit click');
+	fbq('trackCustom', 'visit', {
+		num_visit: 1
+	});
 },false)
 </script>
 
