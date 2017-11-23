@@ -92,9 +92,7 @@ document.getElementById('submit').addEventListener('click',function(){
 
 document.getElementById('visit').addEventListener('click',function(){
 	console.log('visit click');
-	fbq('trackCustom', 'visit', {
-		num_visit: 1
-	});
+	fbq('track', 'visit');
 },false)
 //测试facebook分享
 document.getElementById('share-to-facebook').addEventListener('click',function(){
