@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pixel</title>
+	<meta property="og:url"           content="https://olliesk8.github.io/facebookpixel" />
+	<meta property="og:type"          content="Deal of the Crowd website" />
+	<meta property="og:title"         content="Deal of the Crowd test" />
+	<meta property="og:description"   content="Deal of the Crowd description" />
+	<meta property="og:image"         content="https://olliesk8.github.io/facebookpixel/test.jpg" />
 	<!-- Facebook Pixel Code -->
 	<script>
 		!function(f,b,e,v,n,t,s)
@@ -20,14 +25,38 @@
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=187252765164096&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId            : '128897894456695',
+				autoLogAppEvents : true,
+				xfbml            : true,
+				version          : 'v2.11'
+			});
+		};
 
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 </head>
 <body>
 <button id="bargain" value="bargain">bargain</button><br>
 <button id="submit" value="bargain">submit</button><br>
 <button id="visit" value="bargain">visit</button>
-
+<br>
+<div class="fb-share-button"
+	 data-href="https://olliesk8.github.io/facebookpixel"
+	 data-layout="button_count">
+</div>
+<br>
+<button value="share-to-facebook" id="share-to-facebook">share to facebook</button>
 <script type="text/javascript">
+//测试像素点
 document.getElementById('bargain').addEventListener('click',function(){
 	console.log('bargain click');
 	fbq('trackCustom', 'bargain', {
@@ -47,6 +76,24 @@ document.getElementById('visit').addEventListener('click',function(){
 	fbq('trackCustom', 'visit', {
 		num_visit: 1
 	});
+},false)
+//测试facebook分享
+document.getElementById('share-to-facebook').addEventListener('click',function(){
+	console.log('share facebook click');
+	FB.ui(
+			{
+				method: 'share',
+				href: 'https://olliesk8.github.io/facebookpixel',
+			},
+			// callback
+			function(response) {
+				if (response && !response.error_message) {
+					alert('Posting completed.');
+				} else {
+					alert('Error while posting.');
+				}
+			}
+	);
 },false)
 </script>
 </body>
