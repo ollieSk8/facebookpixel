@@ -22,7 +22,7 @@
 		fbq('init', '187252765164096');
 		fbq('track', 'PageView');
 	</script>
-	<noscript>
+	<noscript>c
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=187252765164096&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
@@ -44,6 +44,22 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
+	<script>window.twttr = (function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+		if (d.getElementById(id)) return t;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js, fjs);
+
+		t._e = [];
+		t.ready = function(f) {
+			t._e.push(f);
+		};
+
+		return t;
+	}(document, "script", "twitter-wjs"));</script>
 </head>
 <body>
 <button id="bargain" value="bargain">bargain</button><br>
@@ -56,6 +72,8 @@
 </div>
 <br>
 <button value="share-to-facebook" id="share-to-facebook">share to facebook</button>
+<br>
+<button value="share-to-twitter" id="share-to-twitter">share to twitter</button>
 <script type="text/javascript">
 //测试像素点
 document.getElementById('bargain').addEventListener('click',function(){
@@ -95,6 +113,12 @@ document.getElementById('share-to-facebook').addEventListener('click',function()
 				}
 			}
 	);
+},false)
+
+
+document.getElementById('share-to-twitter').addEventListener('click',function(){
+	console.log('twitter click');
+	window.open('https://twitter.com/intent/tweet?text=Deal of the Crowd description&url=https://olliesk8.github.io/facebookpixel')
 },false)
 </script>
 </body>
